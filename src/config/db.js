@@ -3,7 +3,7 @@ const logger = require('../utils/logger');
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: './agcs.db',
+  storage: './data/agcs.db',
   logging: (log) => logger.debug(log), // Redireciona logs do Sequelize para o Winston
 });
 

@@ -20,6 +20,6 @@ app.use('/api/tickets', ticketRoutes);
 //Rota para o Helth Check da aplicação
 app.use('/api/health', healthRoutes);
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0',() => {
   logger.info(`APLICAÇÃO ONLINE : ${PORT}`);
 });
