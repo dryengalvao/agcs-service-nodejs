@@ -1,6 +1,8 @@
 # AGCS - Aplicação de Gerenciamento de Chamados de Serviço
 
-O **AGCS** é uma aplicação backend desenvolvida em Node.js + Express para gerenciamento de chamados (tickets), desenvolvida como parte de um desafio técnico para o processo seletivo **Analista IV – Desenvolvedor(a) back-end** do **CNI - Confederação Nacional da Indústria**. A API permite criar, listar e atualizar tickets, com validações, tratamento de erros, e suporte a monitoramento de saúde da aplicação.
+O **AGCS** é uma aplicação backend desenvolvida em Node.js + Express para gerenciamento de chamados (tickets), desenvolvida como parte de um desafio técnico para o processo seletivo **Analista IV – Desenvolvedor(a) back-end** do **CNI - Confederação Nacional da Indústria**. 
+
+A API permite criar, listar e atualizar tickets, com validações, tratamento de erros, e suporte a monitoramento de saúde da aplicação.
 
 Para acessar a versão em **`Java + Spring`** acesse [https://github.com/dryengalvao/agcs-service]
 
