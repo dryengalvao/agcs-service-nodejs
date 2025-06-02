@@ -4,18 +4,17 @@ const request = require('supertest');
 const express = require('express');
 const ticketRoutes = require('../../src/routes/ticketRoutes');
 const db = require('../../src/config/db');
-const Ticket = require('../../src/models/ticket');
 
 const app = express();
 app.use(express.json());
 app.use('/api/tickets', ticketRoutes);
 
-describe('POST /api/tickets', () => {
+describe('createTicket_ReturnsCreatedTicket', () => {
   before(async () => {
     await db.sync({ force: true });
   });
 
-  it('Um Ticket deverá ser criado', async () => {
+  it('deve criar um ticket com sucesso via endpoint', async () => {
     const res = await request(app)
       .post('/api/tickets')
       .send({
@@ -29,8 +28,14 @@ describe('POST /api/tickets', () => {
     expect(res.body).to.have.property('id');
     expect(res.body.title).to.equal('Chamado teste');
   });
+});
 
-  it('A criação deverá falhar ao enviar campos inválidos', async () => {
+describe('createTicket_WithBlankFields_ReturnsValidationErrors', () => {
+  before(async () => {
+    await db.sync({ force: true });
+  });
+
+  it('deve retornar erros de validação ao enviar campos obrigatórios em branco', async () => {
     const res = await request(app)
       .post('/api/tickets')
       .send({

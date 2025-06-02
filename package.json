@@ -2,8 +2,9 @@
   "name": "agcs-service-nodejs",
   "version": "1.0.0",
   "description": "Aplicação de Gerenciamento de Chamados de Serviço - NodeJS version",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node src/app.js",
     "test": "mocha test/**/*.test.js"
   },
   "repository": {

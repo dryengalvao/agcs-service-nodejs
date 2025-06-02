@@ -2,12 +2,12 @@ const { expect } = require('chai');
 const ticketService = require('../../src/services/ticketService');
 const Ticket = require('../../src/models/ticket');
 
-describe('ticketService', () => {
+describe('saveTicket_Success', () => {
   beforeEach(async () => {
     await Ticket.destroy({ where: {} });
   });
 
-  it('Um ticket deverá ser criado', async () => {
+  it('deve criar um novo ticket com dados válidos', async () => {
     const data = {
       title: 'Ticket 1',
       description: 'Descrição 1',
@@ -20,8 +20,14 @@ describe('ticketService', () => {
     expect(created).to.have.property('id');
     expect(created.title).to.equal(data.title);
   });
+});
 
-  it('Um ticket deverá ser atualizado', async () => {
+describe('updateTicket_Success', () => {
+  beforeEach(async () => {
+    await Ticket.destroy({ where: {} });
+  });
+
+  it('deve atualizar um ticket existente com dados válidos', async () => {
     const data = await ticketService.save({
       title: 'Ticket Antigo',
       description: 'Descrição Antiga',
@@ -36,9 +42,14 @@ describe('ticketService', () => {
 
     expect(updated.title).to.equal('Novo Título');
   });
+});
 
-  it('Todos os tickes deverão ser listados', async () => {
+describe('listAllTickets_MultipleTickets_Success', () => {
+  beforeEach(async () => {
+    await Ticket.destroy({ where: {} });
+  });
 
+  it('deve listar todos os tickets salvos', async () => {
     await ticketService.save({
       title: 'Ticket 2',
       description: 'Descrição 2',
