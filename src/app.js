@@ -3,10 +3,18 @@ const app = express();
 const logger = require('./utils/logger');
 const ticketRoutes = require('./routes/ticketRoutes');
 const healthRoutes = require('./routes/healthRoutes');
+const fs = require('fs');
+const path = require('path');
 
 const PORT = 8085;
 
 app.use(express.json());
+
+//Validação para a criação da pasta local do banco de dados do sqlite
+const dataDir = path.join(__dirname, 'data');
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir);
+}
 
 //Metodo para instanciação da base de dados
 (async () => {
