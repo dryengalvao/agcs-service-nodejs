@@ -4,7 +4,7 @@
   "description": "Aplicação de Gerenciamento de Chamados de Serviço - NodeJS version",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +18,16 @@
   },
   "homepage": "https://github.com/dryengalvao/agcs-service-nodejs#readme",
   "dependencies": {
+    "chai": "^4.5.0",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
     "nodemon": "^3.1.10",
     "sequelize": "^6.37.7",
     "sqlite3": "^5.1.7",
     "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "mocha": "^11.5.0",
+    "supertest": "^7.1.1"
   }
 }
